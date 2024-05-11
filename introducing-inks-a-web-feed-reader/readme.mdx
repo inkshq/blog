@@ -1,0 +1,43 @@
+---
+title: 'Introducing Inks: a web feed reader'
+description: Follow any website, with or without RSS feed.
+published: 2024-05-12
+---
+
+## The gap
+
+Wanted to follow a website in your favorite RSS reader, but got an error message like this?
+
+> No RSS feed found at example.com.
+
+This frustrates me all the time. All I want to do is following new updates of the website, whether the website provides a `rss.xml` is not my concern.
+
+Technically, an HTML page is already a feed. When a blog post is published, a new link appears on the blog home page. When a position is added, a new link appears on the job listing page.
+
+The existing RSS apps, however, insist a website should also provide a separate XML file and use that as a feed. Following a website should be easy and should just work, that's the gap Inks tries to fill.
+
+## How Inks works
+
+Inks works similar to an RSS feed reader, but works for websites with or without RSS feed. When following a website, Inks fetches the webpage, saves all the links found.
+
+Then periodically, Inks fetches the webpage again and saves only new links. All these new links form your personalized timeline, without the distraction of ads or promoted contents. You can stay on top of multiple sources in a single place.
+
+Naturally, there are noises if all the links show in your timeline. That's why Inks provides the filters feature to all the users. With filters, you can easily exclude unwanted links.
+
+## An example
+
+As an example, let's follow Next.js releases in Inks. Start by pasting `https://github.com/vercel/next.js/releases` into the Add page dialog.
+
+![add-page](https://inkshq.github.io/blog/introducing-inks-a-web-feed-reader/add-page.png)
+
+After clicking the Next button, Inks will fetch all the links found on `https://github.com/vercel/next.js/releases`, and apply pre-defined GitHub filter on the links.
+
+![all-releases](https://inkshq.github.io/blog/introducing-inks-a-web-feed-reader/all-releases.png)
+
+In this case, a `pathname` filter was added automatically. And all links with pathname starting with `/vercel/next.js/releases/tag/` will show up in your timeline. As you can see the matched links contain both stable and canary releases. What if you only want to follow stable releases. Easy, just add a new filter manually.
+
+![only-stable-releases](https://inkshq.github.io/blog/introducing-inks-a-web-feed-reader/only-stable-releases.png)
+
+## Final note
+
+Links rendered by client side JavaScript are not supported yet, but on our roadmap. Thanks for reading, stay tuned for more updates.
